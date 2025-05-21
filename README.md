@@ -1,8 +1,8 @@
-
 Expense Tracker App
-This is a company assessment given by Alephys.
 
-Base URL (Local):
-http://localhost:8080/api/transactions
 
-Replace localhost:8080 with your deployed server URL as needed.
+POST    /api/transactions              → Add a transaction
+GET     /api/transactions              → Get all transactions
+GET     /api/transactions/monthly     → Get monthly summary by category
+GET     /api/transactions/monthly-balance → Get monthly balance (income - expenses)
+Post    /file/upload                     ->upload csv file
