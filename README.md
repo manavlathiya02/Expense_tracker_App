@@ -1,24 +1,24 @@
 # Expense_tracker_App
 this is company assessment given by alephys.
-Base URL
-Assuming your app runs locally on port 8080:
+# Expense Tracker App - API Documentation
 
-bash
-Copy
-Edit
+Base URL (Local):  
 http://localhost:8080/api/transactions
-1. Add a transaction (POST)
-URL:
 
-bash
+yaml
 Copy
 Edit
-POST http://localhost:8080/api/transactions
-Request JSON body example:
 
-json
-Copy
-Edit
+---
+
+## 1. Add a Transaction
+
+**Endpoint:**  
+`POST /api/transactions`
+
+**Request Body Example:**
+
+```json
 {
   "description": "Groceries",
   "amount": 100.5,
@@ -26,22 +26,18 @@ Edit
   "type": "EXPENSE",
   "category": "FOOD"
 }
-type should be "INCOME" or "EXPENSE" (based on your TransactionType enum).
+type values: "INCOME" or "EXPENSE"
 
-category should match your Category enum values, e.g. "FOOD", "RENT", "SALARY", etc.
+category values: Must match your Category enum, e.g. "FOOD", "RENT", "SALARY", etc.
 
 Response:
-Returns the saved Transaction object (with any generated ID or timestamps).
+Returns the saved Transaction object with details like generated ID.
 
-2. Get all transactions (GET)
-URL:
+2. Get All Transactions
+Endpoint:
+GET /api/transactions
 
-bash
-Copy
-Edit
-GET http://localhost:8080/api/transactions
-Response:
-Returns a JSON array of all transactions, e.g.
+Response Example:
 
 json
 Copy
@@ -64,21 +60,23 @@ Edit
     "category": "SALARY"
   }
 ]
-3. Get monthly summary by category (GET)
-URL:
+3. Get Monthly Summary by Category
+Endpoint:
+GET /api/transactions/monthly
 
-sql
-Copy
-Edit
-GET http://localhost:8080/api/transactions/monthly?year=2025&month=5
-Query params:
+Query Parameters:
 
 year (e.g., 2025)
 
 month (e.g., 5 for May)
 
-Response:
-Returns a JSON object where keys are categories and values are sums for that month, e.g.
+Example URL:
+
+bash
+Copy
+Edit
+http://localhost:8080/api/transactions/monthly?year=2025&month=5
+Response Example:
 
 json
 Copy
@@ -88,19 +86,42 @@ Edit
   "SALARY": 1500,
   "RENT": 700
 }
-4. Get monthly balance (income - expenses) (GET)
-URL:
+4. Get Monthly Balance (Income - Expenses)
+Endpoint:
+GET /api/transactions/monthly-balance
 
-sql
+Query Parameters:
+
+year (e.g., 2025)
+
+month (e.g., 5 for May)
+
+Example URL:
+
+bash
 Copy
 Edit
-GET http://localhost:8080/api/transactions/monthly-balance?year=2025&month=5
-Query params same as above
-
-Response:
-Returns a number, e.g.:
+http://localhost:8080/api/transactions/monthly-balance?year=2025&month=5
+Response Example:
 
 json
 Copy
 Edit
 999.5
+Note: Replace localhost:8080 with your deployed server URL when applicable.
+
+yaml
+Copy
+Edit
+
+---
+
+You can copy-paste this entire block into your `README.md`.  
+If you want, I can also help you add setup instructions or anything else!
+
+
+
+
+
+
+
