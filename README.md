@@ -110,18 +110,16 @@ Edit
 999.5
 Note: Replace localhost:8080 with your deployed server URL when applicable.
 
-yaml
-Copy
-Edit
+## Upload Transactions CSV
 
----
+This endpoint allows you to upload a CSV file containing transactions, which will be parsed and saved into the database.
 
-You can copy-paste this entire block into your `README.md`.  
-If you want, I can also help you add setup instructions or anything else!
+### Endpoint
 
 
-
-
-
+```csv
+description,amount,date,type,category
+Lunch,12.50,2025-05-20,EXPENSE,FOOD
+Salary,2000.00,2025-05-01,INCOME,SALARY
 
 
