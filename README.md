@@ -1,37 +1,29 @@
-# Expense_tracker_App
-this is company assessment given by alephys.
-# Expense Tracker App - API Documentation
 
-Base URL (Local):  
+Expense Tracker App
+This is a company assessment given by Alephys.
+
+API Documentation
+Base URL (Local):
 http://localhost:8080/api/transactions
 
-yaml
-Copy
-Edit
+Note: Replace localhost:8080 with your deployed server URL as needed.
 
----
+1. Add a Transaction
+Endpoint:
+POST /api/transactions
 
-## 1. Add a Transaction
+Request Body Example:
 
-**Endpoint:**  
-`POST /api/transactions`
-
-**Request Body Example:**
-
-```json
+JSON
 {
   "description": "Groceries",
   "amount": 100.5,
   "date": "2025-05-20",
-  "type": "EXPENSE",
-  "category": "FOOD"
+  "type": "EXPENSE",   // Allowed: "INCOME" or "EXPENSE"
+  "category": "FOOD"   // Must match your Category enum, e.g., "FOOD", "RENT", "SALARY"
 }
-type values: "INCOME" or "EXPENSE"
-
-category values: Must match your Category enum, e.g. "FOOD", "RENT", "SALARY", etc.
-
 Response:
-Returns the saved Transaction object with details like generated ID.
+Returns the saved Transaction object with generated ID and details.
 
 2. Get All Transactions
 Endpoint:
@@ -39,9 +31,7 @@ GET /api/transactions
 
 Response Example:
 
-json
-Copy
-Edit
+JSON
 [
   {
     "id": 1,
@@ -67,20 +57,14 @@ GET /api/transactions/monthly
 Query Parameters:
 
 year (e.g., 2025)
-
 month (e.g., 5 for May)
+Example Request:
 
-Example URL:
-
-bash
-Copy
-Edit
-http://localhost:8080/api/transactions/monthly?year=2025&month=5
+Code
+GET /api/transactions/monthly?year=2025&month=5
 Response Example:
 
-json
-Copy
-Edit
+JSON
 {
   "FOOD": 300.5,
   "SALARY": 1500,
@@ -93,33 +77,20 @@ GET /api/transactions/monthly-balance
 Query Parameters:
 
 year (e.g., 2025)
-
 month (e.g., 5 for May)
+Example Request:
 
-Example URL:
-
-bash
-Copy
-Edit
-http://localhost:8080/api/transactions/monthly-balance?year=2025&month=5
+Code
+GET /api/transactions/monthly-balance?year=2025&month=5
 Response Example:
 
-json
-Copy
-Edit
+JSON
 999.5
-Note: Replace localhost:8080 with your deployed server URL when applicable.
+5. Upload Transactions CSV
+This endpoint allows you to upload a CSV file containing transactions, which will be parsed and saved to the database.
 
-## Upload Transactions CSV
-
-This endpoint allows you to upload a CSV file containing transactions, which will be parsed and saved into the database.
-
-### Endpoint
-
-
-```csv
+CSV Format Example:
+CSV
 description,amount,date,type,category
 Lunch,12.50,2025-05-20,EXPENSE,FOOD
 Salary,2000.00,2025-05-01,INCOME,SALARY
-
-
